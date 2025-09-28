@@ -1,6 +1,8 @@
 # Stage 1: Build the React application
 FROM node:20-alpine AS build
 WORKDIR /app
+# Add these lines to install required dependencies for esbuild
+RUN apk add --no-cache libc6-compat
 COPY package*.json ./
 RUN npm install
 COPY . .
